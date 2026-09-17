@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1000&color=FF7EDB&center=true&vCenter=true&width=600&lines=Ol%C3%A1%2C+eu+sou+o+Igor+Lima+%F0%9F%91%8B;Engenharia+da+Computa%C3%A7%C3%A3o;Sistemas+para+o+setor+p%C3%BAblico;Seguran%C3%A7a+de+aplica%C3%A7%C3%B5es" alt="Olá, eu sou o Igor Lima — Engenharia da Computação, sistemas para o setor público, segurança de aplicações" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1000&color=FF7EDB&center=true&vCenter=true&width=600&lines=Ol%C3%A1%2C+eu+sou+o+Igor+Lima+%F0%9F%91%8B;Engenharia+da+Computa%C3%A7%C3%A3o;Sistemas+para+o+setor+p%C3%BAblico;Seguran%C3%A7a+de+aplica%C3%A7%C3%B5es" alt="Olá, eu sou Igor Lima — Engenharia da Computação, sistemas para o setor público, segurança de aplicações" />
 
 <a href="https://www.linkedin.com/in/igor-lima-579981289" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://portfolio-igor-gamma.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Portfólio-2B213A?style=for-the-badge&logo=vercel&logoColor=FF7EDB" alt="Portfólio" /></a>
