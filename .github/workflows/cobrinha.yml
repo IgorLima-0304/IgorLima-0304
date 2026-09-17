@@ -1,0 +1,46 @@
+name: Cobrinha de contribuições
+
+# Gera a animação da cobrinha comendo o gráfico de contribuições e publica os
+# SVGs na branch "output", de onde o README do perfil os carrega.
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # todo dia às 00:00 de Brasília (03:00 UTC)
+  workflow_dispatch: # permite rodar pelo botão "Run workflow"
+  push:
+    branches: [main]
+    paths: [.github/workflows/cobrinha.yml]
+
+# O token padrão do repositório é só leitura; este workflow pede escrita apenas
+# para si, e só no conteúdo — nada de issues, pacotes ou secrets.
+permissions:
+  contents: write
+
+# Evita duas execuções simultâneas brigando pela mesma branch.
+concurrency:
+  group: cobrinha
+  cancel-in-progress: true
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Ações fixadas pelo hash do commit, não pela tag: uma tag pode ser movida
+      # para outro código por quem controla o repositório da ação.
+      - name: Gerar a animação
+        uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3.5.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/cobrinha-escuro.svg?color_snake=#36f9f6&color_dots=#2b213a,#5a2d6e,#a13d8f,#e5289e,#ff7edb
+            dist/cobrinha-claro.svg?color_snake=#7b2cbf&color_dots=#ebedf0,#f5c2e7,#ee8fc9,#e5289e,#a0156e
+
+      - name: Publicar na branch output
+        uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
+        with:
+          target_branch: output
+          build_dir: dist
+          commit_message: "chore: atualiza a animação da cobrinha"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1000&color=FF7EDB&center=true&vCenter=true&width=600&lines=Ol%C3%A1%2C+eu+sou+o+Igor+Lima+%F0%9F%91%8B;Engenharia+da+Computa%C3%A7%C3%A3o;Sistemas+para+o+setor+p%C3%BAblico;Seguran%C3%A7a+de+aplica%C3%A7%C3%B5es" alt="Olá, eu sou Igor Lima — Engenharia da Computação, sistemas para o setor público, segurança de aplicações" />
+<img src="assets/banner.svg" width="100%" alt="Igor Lima — Engenharia da Computação e segurança de aplicações. Banner synthwave com sol listrado e grade neon em movimento." />
 
 <a href="https://www.linkedin.com/in/igor-lima-579981289" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://portfolio-igor-gamma.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Portfólio-2B213A?style=for-the-badge&logo=vercel&logoColor=FF7EDB" alt="Portfólio" /></a>
@@ -69,4 +69,16 @@
 
 <div align="center">
   <sub>As estatísticas consideram apenas repositórios públicos.</sub>
+</div>
+
+<br>
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/IgorLima-0304/IgorLima-0304/output/cobrinha-escuro.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/IgorLima-0304/IgorLima-0304/output/cobrinha-claro.svg" />
+    <img src="https://raw.githubusercontent.com/IgorLima-0304/IgorLima-0304/output/cobrinha-escuro.svg" alt="Animação de uma cobrinha percorrendo e comendo o gráfico de contribuições do GitHub" />
+  </picture>
+  <br>
+  <sub>Gerada todos os dias por um <a href=".github/workflows/cobrinha.yml">GitHub Action</a> neste repositório.</sub>
 </div>

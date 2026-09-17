@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="titulo desc">
+  <title id="titulo">Igor Lima</title>
+  <desc id="desc">Banner synthwave: céu roxo com estrelas, sol listrado no horizonte e grade neon em movimento, com o nome Igor Lima em letreiro neon.</desc>
+
+  <defs>
+    <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d0221"/>
+      <stop offset="0.55" stop-color="#261447"/>
+      <stop offset="1" stop-color="#6b1f5f"/>
+    </linearGradient>
+
+    <linearGradient id="sol" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fede5d"/>
+      <stop offset="0.5" stop-color="#ff8b39"/>
+      <stop offset="1" stop-color="#e5289e"/>
+    </linearGradient>
+
+    <linearGradient id="chao" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a0b2e"/>
+      <stop offset="1" stop-color="#0d0221"/>
+    </linearGradient>
+
+    <!-- Faixas vazadas na metade de baixo do sol -->
+    <mask id="faixas-sol">
+      <rect x="0" y="0" width="1200" height="320" fill="#fff"/>
+      <rect x="480" y="172" width="240" height="3" fill="#000"/>
+      <rect x="480" y="182" width="240" height="4" fill="#000"/>
+      <rect x="480" y="192" width="240" height="5" fill="#000"/>
+      <rect x="480" y="202" width="240" height="6" fill="#000"/>
+    </mask>
+
+    <!-- Linhas somem perto do horizonte, simulando distância -->
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#fff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="fade-chao">
+      <rect x="0" y="210" width="1200" height="110" fill="url(#fade)"/>
+    </mask>
+
+    <clipPath id="recorte-chao">
+      <rect x="0" y="210" width="1200" height="110"/>
+    </clipPath>
+
+    <filter id="neon" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="brilho"/>
+      <feMerge>
+        <feMergeNode in="brilho"/>
+        <feMergeNode in="brilho"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="halo" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+
+    <style>
+      .estrela { animation: piscar 3s ease-in-out infinite; }
+      .e2 { animation-delay: -0.7s; }
+      .e3 { animation-delay: -1.4s; }
+      .e4 { animation-delay: -2.1s; }
+      @keyframes piscar { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+
+      .halo { animation: pulsar 5s ease-in-out infinite; transform-origin: 600px 210px; }
+      @keyframes pulsar { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.8; } }
+
+      /* Cada linha nasce no horizonte e acelera ao se aproximar: sensação de perspectiva */
+      .linha { animation: avancar 4s cubic-bezier(0.55, 0, 1, 0.45) infinite; }
+      .l2 { animation-delay: -0.8s; }
+      .l3 { animation-delay: -1.6s; }
+      .l4 { animation-delay: -2.4s; }
+      .l5 { animation-delay: -3.2s; }
+      @keyframes avancar { from { transform: translateY(0); } to { transform: translateY(110px); } }
+
+      .nome { animation: tremular 6s linear infinite; }
+      @keyframes tremular {
+        0%, 18%, 22%, 62%, 64%, 100% { opacity: 1; }
+        20% { opacity: 0.55; }
+        63% { opacity: 0.75; }
+      }
+
+      /* Quem pediu menos movimento ao sistema operacional vê o banner parado */
+      @media (prefers-reduced-motion: reduce) {
+        .estrela, .halo, .linha, .nome { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <!-- Céu -->
+  <rect width="1200" height="320" fill="url(#ceu)"/>
+
+  <!-- Estrelas -->
+  <g fill="#fff">
+    <circle class="estrela" cx="90" cy="40" r="1.6"/>
+    <circle class="estrela e2" cx="210" cy="95" r="1.2"/>
+    <circle class="estrela e3" cx="330" cy="30" r="1.8"/>
+    <circle class="estrela e4" cx="420" cy="150" r="1.1"/>
+    <circle class="estrela e2" cx="770" cy="25" r="1.5"/>
+    <circle class="estrela" cx="860" cy="140" r="1.2"/>
+    <circle class="estrela e3" cx="980" cy="55" r="1.9"/>
+    <circle class="estrela e4" cx="1110" cy="110" r="1.3"/>
+    <circle class="estrela e2" cx="1150" cy="30" r="1.1"/>
+    <circle class="estrela e3" cx="40" cy="160" r="1.2"/>
+  </g>
+
+  <!-- Sol -->
+  <circle class="halo" cx="600" cy="210" r="95" fill="#ff5fa2" filter="url(#halo)"/>
+  <circle cx="600" cy="210" r="85" fill="url(#sol)" mask="url(#faixas-sol)"/>
+
+  <!-- Montanhas -->
+  <polygon points="0,210 130,160 230,195 330,140 450,210" fill="#1a0b2e"/>
+  <polygon points="750,210 880,150 980,190 1080,145 1200,200 1200,210" fill="#1a0b2e"/>
+
+  <!-- Chão -->
+  <rect x="0" y="210" width="1200" height="110" fill="url(#chao)"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#ff7edb" stroke-width="2"/>
+
+  <g clip-path="url(#recorte-chao)" mask="url(#fade-chao)" stroke="#e5289e" stroke-width="2">
+    <!-- Linhas de fuga, convergindo para o centro do horizonte -->
+    <line x1="600" y1="210" x2="-600" y2="320"/>
+    <line x1="600" y1="210" x2="-250" y2="320"/>
+    <line x1="600" y1="210" x2="80" y2="320"/>
+    <line x1="600" y1="210" x2="360" y2="320"/>
+    <line x1="600" y1="210" x2="600" y2="320"/>
+    <line x1="600" y1="210" x2="840" y2="320"/>
+    <line x1="600" y1="210" x2="1120" y2="320"/>
+    <line x1="600" y1="210" x2="1450" y2="320"/>
+    <line x1="600" y1="210" x2="1800" y2="320"/>
+
+    <!-- Linhas horizontais em movimento -->
+    <line class="linha" x1="0" y1="210" x2="1200" y2="210"/>
+    <line class="linha l2" x1="0" y1="210" x2="1200" y2="210"/>
+    <line class="linha l3" x1="0" y1="210" x2="1200" y2="210"/>
+    <line class="linha l4" x1="0" y1="210" x2="1200" y2="210"/>
+    <line class="linha l5" x1="0" y1="210" x2="1200" y2="210"/>
+  </g>
+
+  <!-- Nome em neon -->
+  <g class="nome" filter="url(#neon)" text-anchor="middle" font-family="'Trebuchet MS', 'Segoe UI', Verdana, sans-serif">
+    <text x="600" y="78" font-size="58" font-weight="700" letter-spacing="10" fill="#ffd6f5">IGOR LIMA</text>
+  </g>
+  <text x="600" y="112" text-anchor="middle" font-family="'Trebuchet MS', 'Segoe UI', Verdana, sans-serif" font-size="17" letter-spacing="3" fill="#36f9f6">ENGENHARIA DA COMPUTAÇÃO · SEGURANÇA DE APLICAÇÕES</text>
+</svg>
